@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 import cv2
 import pcd
 
-img = cv2.imread("../img/koin.jpg")
-gray = cv2.imread("../img/koin.jpg", cv2.IMREAD_GRAYSCALE)
+img = cv2.imread("../Dataset/koin.jpg")
+gray = cv2.imread("../Dataset/koin.jpg", cv2.IMREAD_GRAYSCALE)
 
 blur = pcd.averageBlur(gray, (3,3))
 binary = pcd.imgToBinary(blur, 95)

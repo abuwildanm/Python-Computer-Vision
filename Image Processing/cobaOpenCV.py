@@ -9,8 +9,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 
-lena = cv2.imread("../img/lena.png")
-lenaGray = cv2.imread("../img/lena.png", cv2.IMREAD_GRAYSCALE)
+lena = cv2.imread("../Dataset/lena.png")
+lenaGray = cv2.imread("../Dataset/lena.png", cv2.IMREAD_GRAYSCALE)
 
 #=== Ambil BGR ===
 blue = lena[:,:,0]

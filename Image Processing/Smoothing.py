@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 import cv2, pcd
 
 # read image
-img = cv2.imread("../img/dna.jpg")
+img = cv2.imread("../Dataset/dna.jpg")
 
 # rgb to gray
-gray = cv2.imread("../img/dna.jpg", cv2.IMREAD_GRAYSCALE)
+gray = cv2.imread("../Dataset/dna.jpg", cv2.IMREAD_GRAYSCALE)
 
 # proses smoothing
 average = cv2.blur(gray, (3,3))

@@ -4,8 +4,8 @@ import cv2
 import pcd
 import copy
 
-img = cv2.imread("../img/lena.png")
-gray = cv2.imread("../img/lena.png", cv2.IMREAD_GRAYSCALE)
+img = cv2.imread("../Dataset/lena.png")
+gray = cv2.imread("../Dataset/lena.png", cv2.IMREAD_GRAYSCALE)
 gray1 = pcd.rgbToGrayAverage(img)
 
 #Image Negative

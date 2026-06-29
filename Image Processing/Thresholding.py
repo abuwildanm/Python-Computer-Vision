@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 import cv2
 
 # read image
-img = cv2.imread("../img/pool.png")
+img = cv2.imread("../Dataset/pool.png")
 
 # rgb to gray
-gray = cv2.imread("../img/pool.png", cv2.IMREAD_GRAYSCALE)
+gray = cv2.imread("../Dataset/pool.png", cv2.IMREAD_GRAYSCALE)
 
 # gray to binary
 ret,binary = cv2.threshold(gray, 50, 255, cv2.THRESH_BINARY)

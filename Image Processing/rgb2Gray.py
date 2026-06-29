@@ -11,7 +11,7 @@ from scipy import misc
 import matplotlib.pyplot as plt
 # from skimage import data
 
-photo_data = misc.imread("../img/lena.png")
+photo_data = misc.imread("../Dataset/lena.png")
 
 # === Average Method ====
 #x,y,z=photo_data.shape ## where z is the RGB dimension

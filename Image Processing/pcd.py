@@ -36,10 +36,10 @@ def imgNegative(img):
 
 def logtrans(img, c):
 #    #cara 1
-#    logtrans = copy.copy(img)
-#    for x in range (img.shape[0]):
-#        for y in range(img.shape[1]):
-#            logtrans[x][y] = c * (1 + np.log(img[x][y]))
+#    logtrans = copy.copy(Dataset)
+#    for x in range (Dataset.shape[0]):
+#        for y in range(Dataset.shape[1]):
+#            logtrans[x][y] = c * (1 + np.log(Dataset[x][y]))
     
     #cara 2
     logtrans = c * np.log(1 + img)
@@ -47,13 +47,13 @@ def logtrans(img, c):
 
 def powerlaw (img, c , gamma):
 #    #cara 1
-#    powerlaw = copy.copy(img)
-#    for x in range (img.shape[0]):
-#        for y in range(img.shape[1]):
-#            powerlaw[x][y] = c * (np.power(img[x][y],gamma))
+#    powerlaw = copy.copy(Dataset)
+#    for x in range (Dataset.shape[0]):
+#        for y in range(Dataset.shape[1]):
+#            powerlaw[x][y] = c * (np.power(Dataset[x][y],gamma))
 #    
 #    #cara 2
-#    powerlaw = c * np.power(img,gamma)
+#    powerlaw = c * np.power(Dataset,gamma)
     
     #cara 3
     powerlaw = c * (img**gamma)
@@ -110,7 +110,7 @@ def andOperation(img):
     hasil = copy.copy(img)
     for i in range(height):
         for j in range(width):
-            #hasil[i][j] = min(img[i][j], mask[i][j])
+            #hasil[i][j] = min(Dataset[i][j], mask[i][j])
             hasil[i][j] = img[i][j] & mask[i][j]
     
     return hasil
@@ -126,7 +126,7 @@ def orOperation(img):
     hasil = copy.copy(img)
     for i in range(height):
         for j in range(width):
-            #hasil[i][j] = max(img[i][j], mask[i][j])
+            #hasil[i][j] = max(Dataset[i][j], mask[i][j])
             hasil[i][j] = img[i][j] | mask[i][j]
     
     return hasil
@@ -162,7 +162,7 @@ def imgToBinary(img, threshold, inverse=False):
                 else:
                     result[i][j] = 255
 
-#    result = np.where(img >= threshold, 255, 0)
+#    result = np.where(Dataset >= threshold, 255, 0)
     return result
 
 def averageBlur(img, sizeKernel):
@@ -180,7 +180,7 @@ def averageBlur(img, sizeKernel):
         for j in range(1, width-1):
             hasilKali = kernel * imgBesar[i-1:i+2, j-1:j+2]
             result[i,j] = round(np.sum(hasilKali))
-#            result[i,j] = np.sum(hasilKali)
+            # result[i,j] = np.sum(hasilKali)
     
     #motong padding(pinggiran)
     result = result[1:height-1, 1:width-1]
@@ -191,7 +191,7 @@ def dilation(imgBinary, sizeKernel):
     kernel = np.ones(sizeKernel, np.uint8)
     padding = math.floor(len(kernel)/2)
     
-    #binary img -> 0 1 img
+    #binary Dataset -> 0 1 Dataset
     binary = imgBinary / 255
     
     #nambah padding (pinggiran)
@@ -209,7 +209,7 @@ def dilation(imgBinary, sizeKernel):
     #motong padding(pinggiran)
     result = result[1:height-1, 1:width-1]
     
-    #0 1 img -> binary img
+    #0 1 Dataset -> binary Dataset
     result = result * 255
     return result
 
@@ -217,7 +217,7 @@ def erotion(imgBinary, sizeKernel):
     kernel = np.ones(sizeKernel, np.uint8)
     padding = math.floor(len(kernel)/2)
     
-    #binary img -> 0 1 img
+    #binary Dataset -> 0 1 Dataset
     binary = imgBinary / 255
     
     #nambah padding (pinggiran)
@@ -235,7 +235,7 @@ def erotion(imgBinary, sizeKernel):
     #motong padding(pinggiran)
     result = result[1:height-1, 1:width-1]
     
-    #0 1 img -> binary img
+    #0 1 Dataset -> binary Dataset
     result = result * 255
     return result
 
@@ -256,7 +256,7 @@ def segmentation(imgBinary, sizeKernel):
     padding = math.floor(len(kernel)/2)
     kernel[padding, padding] = 8
     
-    #binary img -> 0 1 img
+    #binary Dataset -> 0 1 Dataset
     binary = imgBinary / 255
     
     #nambah padding (pinggiran)
@@ -274,7 +274,7 @@ def segmentation(imgBinary, sizeKernel):
     #motong padding(pinggiran)
     result = result[1:height-1, 1:width-1]
     
-    #0 1 img -> binary img
+    #0 1 Dataset -> binary Dataset
 #    result = result * 255
 #    result = np.where(result != 0, result * 255, 0)
     return result
@@ -287,7 +287,7 @@ def findStart(binSeg):
                 
 #4 direction
 def representation(imgSeg):
-    #binary img -> 0 1 img
+    #binary Dataset -> 0 1 Dataset
 #    binary = imgToBinary()
     binary = imgSeg / 255
 #    print(binary, np.max(binary))
@@ -325,7 +325,7 @@ def representation(imgSeg):
 
 #8 direction
 def representation8(imgSeg):
-    #binary img -> 0 1 img
+    #binary Dataset -> 0 1 Dataset
 #    binary = imgToBinary()
     binary = imgSeg / 255
     

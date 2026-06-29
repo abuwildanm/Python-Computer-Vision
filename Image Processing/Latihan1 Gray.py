@@ -9,13 +9,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pcd
 
-img = plt.imread("../img/lena.png")
+img = plt.imread("../Dataset/lena.png")
 
 imgGray = pcd.rgbToGrayLuminosity(img)
 imgGray1 = pcd.rgbToGrayAverage(img)
 imgGray2 = pcd.rgbToGrayLightness(img)
 
-#img1 = Image.open('img/lena.png').convert('LA') #make PIL
+#img1 = Image.open('Dataset/lena.png').convert('LA') #make PIL
 
 plt.imshow(img), plt.title("Original")
 plt.show()

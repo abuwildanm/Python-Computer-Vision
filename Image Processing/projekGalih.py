@@ -10,7 +10,7 @@ import numpy as np
 import skimage
 
 # memanggil image
-img = cv2.imread("img/pool.png")
+img = cv2.imread("Dataset/pool.png")
 resize = cv2.resize(img, (480,480), fx=0.5, fy=0.5)
 cv2.imshow("Original Image",resize)
 

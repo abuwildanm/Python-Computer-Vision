@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 import cv2, pcd
 
 # read image
-img = cv2.imread("../img/koin.jpg")
+img = cv2.imread("../Dataset/koin.jpg")
 
 # rgb to gray
-gray = cv2.imread("../img/koin.jpg", cv2.IMREAD_GRAYSCALE)
+gray = cv2.imread("../Dataset/koin.jpg", cv2.IMREAD_GRAYSCALE)
 
 # menghilangkan noise
 blur = cv2.blur(gray, (3,3))

@@ -11,21 +11,21 @@ import cv2
 import pcd
 
 # read image
-img = cv2.imread("img/train/apel1.png")
-gray = cv2.imread("img/train/apel1.png", cv2.IMREAD_GRAYSCALE)
+img = cv2.imread("Dataset/train/apel1.png")
+gray = cv2.imread("Dataset/train/apel1.png", cv2.IMREAD_GRAYSCALE)
 
 blur = pcd.averageBlur(gray, (3,3))
 #binary1 = pcd.imgToBinary(blur, 200)
 binary = pcd.imgToBinary(blur, 200, True)
 seg = pcd.segmentation(binary[1:binary.shape[0]-1, 1:binary.shape[1]-1], (3,3))
-rep = pcd.representation(seg)
+# rep = pcd.representation(seg)
 #rep1 = pcd.represent_4_direction(seg)
 
-#print(blur)
+print(blur)
 #print(binary1)
 #print(binary)
 #print(seg)
-print(rep)
+# print(rep)
 #print(seg.shape)
 #print(seg.shape[0])
 #print(seg.shape[1])
